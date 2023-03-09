@@ -1,0 +1,25 @@
+{
+  "name": "ankyantra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patelka2211/AnkYantra.git"
+  },
+  "keywords": [
+    "AnkYantra"
+  ],
+  "author": "Kartavya Patel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patelka2211/AnkYantra/issues"
+  },
+  "homepage": "https://github.com/patelka2211/AnkYantra#readme",
+  "dependencies": {
+    "electron": "^23.1.3"
+  }
+}
