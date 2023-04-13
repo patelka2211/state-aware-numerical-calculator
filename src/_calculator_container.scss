@@ -1,0 +1,77 @@
+@mixin calc_container() {
+    .calc-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        #answer-container {
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+
+            overflow-y: auto;
+
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+            scrollbar-width: none; /* Firefox */
+
+            &::-webkit-scrollbar {
+                display: none; /* Safari and Chrome */
+            }
+
+            .ans-element {
+                font-size: 64px;
+            }
+        }
+
+        .calc-btns-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .btn-row {
+                width: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                #clear-btn {
+                    width: calc(75% - 2.5px);
+                    height: 100%;
+                    aspect-ratio: auto;
+                }
+                .calc-btns {
+                    border-radius: 100px;
+                    background-color: #f6f6f6;
+                    width: calc(25% - 8px);
+                    aspect-ratio: 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+
+                    .btn-text {
+                        color: black;
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+                }
+
+                margin-top: 8px;
+                #_0-btn {
+                    width: calc(50% - 5px);
+                    height: 100%;
+                    aspect-ratio: auto;
+                }
+
+                .highlight-btns {
+                    background-color: orange;
+                    .btn-text {
+                        font-size: 26px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

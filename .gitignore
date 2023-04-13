@@ -1,2 +1,6 @@
+# macOS .DS_Store file
 .ds_store
 **/.ds_store
+
+# VSCode settings
+.vscode

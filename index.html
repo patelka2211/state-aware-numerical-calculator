@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State aware numerical calculator</title>
+    <link rel="stylesheet" href="./bundle/style.css">
+</head>
+
+<body>
+
+    <div id="main-container">
+        <div class="finite-automata-diagram"></div>
+        <div class="calc-container">
+            <div id="answer-container">
+            </div>
+
+
+            <div class="calc-btns-container">
+                <div class="btn-row">
+                    <div id="clear-btn" class="calc-btns">
+                        <span class="btn-text">AC</span>
+                    </div>
+                    <div id="div-btn" class="calc-btns highlight-btns">
+                        <span class="btn-text">÷</span>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <div id="7-btn" class="calc-btns">
+                        <span class="btn-text">7</span>
+                    </div>
+                    <div id="8-btn" class="calc-btns">
+                        <span class="btn-text">8</span>
+                    </div>
+                    <div id="9-btn" class="calc-btns">
+                        <span class="btn-text">9</span>
+                    </div>
+                    <div id="mult-btn" class="calc-btns highlight-btns">
+                        <span class="btn-text">×</span>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <div id="4-btn" class="calc-btns">
+                        <span class="btn-text">4</span>
+                    </div>
+                    <div id="5-btn" class="calc-btns">
+                        <span class="btn-text">5</span>
+                    </div>
+                    <div id="6-btn" class="calc-btns">
+                        <span class="btn-text">6</span>
+                    </div>
+                    <div id="sub-btn" class="calc-btns highlight-btns">
+                        <span class="btn-text">−</span>
+                    </div>
+
+                </div>
+                <div class="btn-row">
+                    <div id="1-btn" class="calc-btns">
+                        <span class="btn-text">1</span>
+                    </div>
+                    <div id="2-btn" class="calc-btns">
+                        <span class="btn-text">2</span>
+                    </div>
+                    <div id="3-btn" class="calc-btns">
+                        <span class="btn-text">3</span>
+                    </div>
+                    <div id="add-btn" class="calc-btns highlight-btns">
+                        <span class="btn-text">+</span>
+                    </div>
+
+                </div>
+                <div class="btn-row">
+                    <div id="_0-btn" class="calc-btns">
+                        <span class="btn-text">0</span>
+                    </div>
+                    <div id="dot-btn" class="calc-btns">
+                        <span class="btn-text">.</span>
+                    </div>
+                    <div id="equal-btn" class="calc-btns highlight-btns">
+                        <span class="btn-text">=</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script>
+
+        let array =
+            [
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+                '9', '2', '.', '+',
+            ]
+        for (let index = 0; index < array.length; index++) {
+            const item = array[index];
+
+
+            setTimeout(() => {
+
+
+                addtext(item)
+
+            }, 100 * index);
+        }
+
+        function addtext(text) {
+            document.getElementById('answer-container').innerHTML += `<span class="ans-element">${text}</span>`
+            document.getElementById('answer-container').scrollLeft =
+                document.getElementById('answer-container').scrollWidth
+        }
+    </script> -->
+</body>
+
+</html>
