@@ -23,10 +23,11 @@
             }
         }
 
-        .calc-btns-container {
+        .calc-keys-container {
             width: 100%;
             display: flex;
             flex-direction: column;
+            margin-bottom: 8px;
 
             .btn-row {
                 width: 100%;
@@ -35,12 +36,7 @@
                 align-items: center;
                 justify-content: space-between;
 
-                #clear-btn {
-                    width: calc(75% - 2.5px);
-                    height: 100%;
-                    aspect-ratio: auto;
-                }
-                .calc-btns {
+                .calc-keys {
                     border-radius: 100px;
                     background-color: #f6f6f6;
                     width: calc(25% - 8px);
@@ -49,12 +45,20 @@
                     flex-direction: column;
                     align-items: center;
                     justify-content: space-around;
+                    border: none;
 
-                    .btn-text {
-                        color: black;
-                        font-size: 24px;
-                        font-weight: bold;
+                    color: black;
+                    font-size: 26px;
+                    font-weight: bold;
+                    &:hover {
+                        cursor: pointer;
                     }
+                }
+
+                #clear-btn {
+                    width: calc(75% - 2.5px);
+                    height: 100%;
+                    aspect-ratio: auto;
                 }
 
                 margin-top: 8px;
@@ -64,12 +68,47 @@
                     aspect-ratio: auto;
                 }
 
-                .highlight-btns {
-                    background-color: orange;
-                    .btn-text {
-                        font-size: 26px;
-                        color: white;
+                #dot-btn {
+                    &.disabled {
+                        color: rgba(40, 40, 40, 0.16);
                     }
+                }
+                .number-key {
+                    &.disabled {
+                        color: rgba(40, 40, 40, 0.16);
+                    }
+                }
+                .operator-key {
+                    background-color: orange;
+                    font-size: 26px;
+                    color: white;
+
+                    &.disabled {
+                        background-color: rgba(255, 165, 0, 0.16);
+                        color: rgba(40, 40, 40, 0.16);
+                    }
+                }
+            }
+        }
+
+        .sharer-btn-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            .sharer-open-btn {
+                // width: 100%;
+                padding: 4px 8px;
+                border: none;
+                border-radius: 6px;
+                color: orange;
+                font-size: 18px;
+                background-color: transparent;
+                &:hover {
+                    background-color: rgba(255, 166, 0, 0.16);
                 }
             }
         }
