@@ -4,3 +4,14 @@
 
 # VSCode settings
 .vscode
+
+# Typescript config
+config.typescript.sh
+tsconfig.json
+
+# Rollup config
+config.rollup.sh
+rollup.config.mjs
+
+# Terser config
+config.terser.sh

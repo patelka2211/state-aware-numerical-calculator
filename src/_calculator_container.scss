@@ -1,3 +1,76 @@
+@mixin calc_keys_container() {
+    .calc-keys-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8px;
+
+        .btn-row {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .calc-keys {
+                border-radius: 100px;
+                background-color: #f6f6f6;
+                width: calc(25% - 8px);
+                aspect-ratio: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                border: none;
+
+                color: black;
+                font-size: 26px;
+                font-weight: bold;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            #btn-clear {
+                width: calc(75% - 2.5px);
+                height: 100%;
+                aspect-ratio: auto;
+            }
+
+            margin-top: 8px;
+            #btn-0 {
+                width: calc(50% - 5px);
+                height: 100%;
+                aspect-ratio: auto;
+            }
+
+            #btn-period {
+                &.disabled {
+                    cursor: not-allowed;
+                    color: rgba(40, 40, 40, 0.16);
+                }
+            }
+            .number-key {
+                &.disabled {
+                    cursor: not-allowed;
+                    color: rgba(40, 40, 40, 0.16);
+                }
+            }
+            .operator-key {
+                background-color: orange;
+                font-size: 26px;
+                color: white;
+
+                &.disabled {
+                    cursor: not-allowed;
+                    background-color: rgba(255, 165, 0, 0.16);
+                    color: rgba(40, 40, 40, 0.16);
+                }
+            }
+        }
+    }
+}
+
 @mixin calc_container() {
     .calc-container {
         width: 100%;
@@ -23,73 +96,7 @@
             }
         }
 
-        .calc-keys-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 8px;
-
-            .btn-row {
-                width: 100%;
-
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                .calc-keys {
-                    border-radius: 100px;
-                    background-color: #f6f6f6;
-                    width: calc(25% - 8px);
-                    aspect-ratio: 1;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: space-around;
-                    border: none;
-
-                    color: black;
-                    font-size: 26px;
-                    font-weight: bold;
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-
-                #clear-btn {
-                    width: calc(75% - 2.5px);
-                    height: 100%;
-                    aspect-ratio: auto;
-                }
-
-                margin-top: 8px;
-                #_0-btn {
-                    width: calc(50% - 5px);
-                    height: 100%;
-                    aspect-ratio: auto;
-                }
-
-                #dot-btn {
-                    &.disabled {
-                        color: rgba(40, 40, 40, 0.16);
-                    }
-                }
-                .number-key {
-                    &.disabled {
-                        color: rgba(40, 40, 40, 0.16);
-                    }
-                }
-                .operator-key {
-                    background-color: orange;
-                    font-size: 26px;
-                    color: white;
-
-                    &.disabled {
-                        background-color: rgba(255, 165, 0, 0.16);
-                        color: rgba(40, 40, 40, 0.16);
-                    }
-                }
-            }
-        }
+        @include calc_keys_container();
 
         .sharer-btn-container {
             width: 100%;
@@ -109,6 +116,7 @@
                 background-color: transparent;
                 &:hover {
                     background-color: rgba(255, 166, 0, 0.16);
+                    cursor: pointer;
                 }
             }
         }

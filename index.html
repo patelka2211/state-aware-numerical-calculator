@@ -38,7 +38,7 @@
                     </g>
                     <!-- 1 -->
                     <g id="node1" class="node">
-                        <title>State 1 (Enter numbers, operators, dot or equal)</title>
+                        <title>State 1 (Enter numbers, operators, period or equal)</title>
                         <ellipse fill="none" stroke="black" cx="212" cy="-61" rx="18" ry="18"></ellipse>
                         <text text-anchor="middle" x="212" y="-56.8" font-family="Times,serif"
                             font-size="14.00">1</text>
@@ -67,7 +67,7 @@
                     </g>
                     <!-- Edges from state 0 -->
                     <!-- 0->1 -->
-                    <g class="edge-from-0 edge highlighted-edge">
+                    <g class="edges-from-0 edge highlighted-edge">
                         <title>0-&gt;1</title>
                         <path fill="none" stroke="black"
                             d="M147.325,-55.2371C153.418,-51.6474 160.776,-48.0174 168,-46.2 174.18,-44.6452 180.738,-45.5423 186.821,-47.4996">
@@ -80,7 +80,7 @@
 
                     <!-- Edges from state 1 -->
                     <!-- 1->0 -->
-                    <g class="edge-from-1 edge">
+                    <g class="edges-from-1 edge">
                         <title>1-&gt;0</title>
                         <path fill="none" stroke="black"
                             d="M193.912,-62.0128C188.216,-62.3407 181.835,-62.6976 176,-63 170.948,-63.2618 165.562,-63.525 160.371,-63.7705">
@@ -91,7 +91,7 @@
                             font-size="14.00">O</text>
                     </g>
                     <!-- 1->1 -->
-                    <g class="edge-from-1 edge">
+                    <g class="edges-from-1 edge">
                         <title>1-&gt;1</title>
                         <path fill="none" stroke="black"
                             d="M204.969,-77.6641C203.406,-87.625 205.75,-97 212,-97 216.004,-97 218.405,-93.1525 219.202,-87.7682">
@@ -102,7 +102,7 @@
                             font-size="14.00">N</text>
                     </g>
                     <!-- 1->2 -->
-                    <g class="edge-from-1 edge">
+                    <g class="edges-from-1 edge">
                         <title>1-&gt;2</title>
                         <path fill="none" stroke="black"
                             d="M229.925,-59.0471C239.772,-57.911 252.418,-56.4518 263.646,-55.1563">
@@ -113,7 +113,7 @@
                             font-size="14.00">D</text>
                     </g>
                     <!-- 1->4 -->
-                    <g class="edge-from-1 edge">
+                    <g class="edges-from-1 edge">
                         <title>1-&gt;4</title>
                         <path fill="none" stroke="black"
                             d="M228.273,-69.2959C234.261,-72.1949 241.295,-75.1772 248,-77 308.056,-93.3258 381.15,-97.1609 421.834,-97.9423">
@@ -126,7 +126,7 @@
 
                     <!-- Edges from state 2 -->
                     <!-- 2->3 -->
-                    <g class="edge-from-2 edge">
+                    <g class="edges-from-2 edge">
                         <title>2-&gt;3</title>
                         <path fill="none" stroke="black"
                             d="M308.784,-45.1196C319.463,-40.465 333.791,-34.2192 346.006,-28.8947">
@@ -139,7 +139,7 @@
 
                     <!-- Edges from state 3 -->
                     <!-- 3->0 -->
-                    <g class="edge-from-3 edge">
+                    <g class="edges-from-3 edge">
                         <title>3-&gt;0</title>
                         <path fill="none" stroke="black"
                             d="M353.97,-18.2417C322.194,-18.9781 251.846,-21.9567 194,-34 182.164,-36.4643 178.939,-36.851 168,-42 163.74,-44.005 159.396,-46.4672 155.283,-49.027">
@@ -150,7 +150,7 @@
                             font-size="14.00">O</text>
                     </g>
                     <!-- 3->3 -->
-                    <g class="edge-from-3 edge">
+                    <g class="edges-from-3 edge">
                         <title>3-&gt;3</title>
                         <path fill="none" stroke="black"
                             d="M365.266,-35.0373C363.892,-44.8579 366.137,-54 372,-54 375.665,-54 377.916,-50.4289 378.753,-45.3529">
@@ -161,7 +161,7 @@
                             font-size="14.00">N</text>
                     </g>
                     <!-- 3->4 -->
-                    <g class="edge-from-3 edge">
+                    <g class="edges-from-3 edge">
                         <title>3-&gt;4</title>
                         <path fill="none" stroke="black"
                             d="M385.5,-30.5C397.55,-42.5499 416.053,-61.0533 430.642,-75.6416"></path>
@@ -173,7 +173,7 @@
 
                     <!-- Edges from state 4 -->
                     <!-- 4->0 -->
-                    <g class="edge-from-4 edge">
+                    <g class="edges-from-4 edge">
                         <title>4-&gt;0</title>
                         <path fill="none" stroke="black"
                             d="M437.934,-113.062C422.854,-126.478 398.314,-144 373,-144 211,-144 211,-144 211,-144 180.339,-144 157.664,-113.494 144.89,-90.3952">
@@ -188,36 +188,36 @@
         </div>
         <div class="calc-container">
             <div id="answer-container">
-                <span class="ans-element">0</span>
+                <!-- <span class="ans-element">0</span> -->
             </div>
 
             <div class="calc-keys-container">
                 <div class="btn-row">
-                    <button id="clear-btn" class="calc-keys">All clear</button>
-                    <button id="div-btn" class="calc-keys operator-key disabled">/</button>
+                    <button id="btn-clear" class="calc-keys">Clear</button>
+                    <button id="btn-div" class="calc-keys operator-key disabled">/</button>
                 </div>
                 <div class="btn-row">
-                    <button id="7-btn" class="calc-keys number-key disabled">7</button>
-                    <button id="8-btn" class="calc-keys number-key">8</button>
-                    <button id="9-btn" class="calc-keys number-key">9</button>
-                    <button id="mult-btn" class="calc-keys operator-key disabled">×</button>
+                    <button id="btn-7" class="calc-keys number-key ">7</button>
+                    <button id="btn-8" class="calc-keys number-key">8</button>
+                    <button id="btn-9" class="calc-keys number-key">9</button>
+                    <button id="btn-mult" class="calc-keys operator-key disabled">×</button>
                 </div>
                 <div class="btn-row">
-                    <button id="4-btn" class="calc-keys number-key">4</button>
-                    <button id="5-btn" class="calc-keys number-key">5</button>
-                    <button id="6-btn" class="calc-keys number-key">6</button>
-                    <button id="sub-btn" class="calc-keys operator-key disabled">−</button>
+                    <button id="btn-4" class="calc-keys number-key">4</button>
+                    <button id="btn-5" class="calc-keys number-key">5</button>
+                    <button id="btn-6" class="calc-keys number-key">6</button>
+                    <button id="btn-sub" class="calc-keys operator-key disabled">−</button>
                 </div>
                 <div class="btn-row">
-                    <button id="1-btn" class="calc-keys number-key">1</button>
-                    <button id="2-btn" class="calc-keys number-key">2</button>
-                    <button id="3-btn" class="calc-keys number-key">3</button>
-                    <button id="add-btn" class="calc-keys operator-key disabled">+</button>
+                    <button id="btn-1" class="calc-keys number-key">1</button>
+                    <button id="btn-2" class="calc-keys number-key">2</button>
+                    <button id="btn-3" class="calc-keys number-key">3</button>
+                    <button id="btn-add" class="calc-keys operator-key disabled">+</button>
                 </div>
                 <div class="btn-row">
-                    <button id="_0-btn" class="calc-keys">0</button>
-                    <button id="dot-btn" class="calc-keys disabled">.</button>
-                    <button id="equal-btn" class="calc-keys operator-key disabled">=</button>
+                    <button id="btn-0" class="calc-keys">0</button>
+                    <button id="btn-period" class="calc-keys disabled">.</button>
+                    <button id="btn-equal" class="calc-keys operator-key disabled">=</button>
                 </div>
             </div>
 
@@ -237,7 +237,7 @@
                     element.classList.remove('highlighted-edge');
                 }
             })(
-                document.getElementsByClassName(`edge-from-${stateId}`)
+                document.getElementsByClassName(`edges-from-${stateId}`)
             )
         }
 
@@ -249,7 +249,7 @@
                     element.classList.add('highlighted-edge');
                 }
             })(
-                document.getElementsByClassName(`edge-from-${stateId}`)
+                document.getElementsByClassName(`edges-from-${stateId}`)
             )
         }
 
@@ -267,46 +267,48 @@
                 removeStateHighlight(1);
             }, 1000);
         }, 2000);
-    </script>
+    </script> -->
 
 
-    <script>
+    <!-- <script>
 
         let array =
             [
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
-                '9', '2', '.', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
+                '9', '2', '.', '0', '+',
             ]
         for (let index = 0; index < array.length; index++) {
             const item = array[index];
-
-
             setTimeout(() => {
-
-
                 addtext(item)
-
             }, 100 * index);
         }
 
         function addtext(text) {
-            document.getElementById('answer-container').innerHTML += `<span class="ans-element">${text}</span>`
+            let span = document.createElement('span');
+            span.setAttribute('class', 'ans-element');
+            span.innerText = text;
+
+            document.getElementById('answer-container').appendChild(span);
+            // document.getElementById('answer-container').innerHTML += `<span class="ans-element">${text}</span>`
             document.getElementById('answer-container').scrollLeft =
                 document.getElementById('answer-container').scrollWidth
         }
     </script> -->
+
+    <script src="./bundle/index.js"></script>
 </body>
 
 </html>
