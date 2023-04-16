@@ -26,6 +26,12 @@
         }
 
         .edge {
+            &.highlighted-edge,
+            &.spotlight-edge {
+                path {
+                    stroke-width: 3;
+                }
+            }
             &.highlighted-edge {
                 path,
                 polygon {

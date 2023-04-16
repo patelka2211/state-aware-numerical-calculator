@@ -1,13 +1,17 @@
 @import "./state_automata_svg";
 
 @mixin fa_diagram() {
-    .finite-automata-diagram {
+    #finite-automata-diagram {
         width: 100%;
         margin-bottom: 32px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+
+        #warning-tag {
+            text-align: center;
+        }
 
         @include fa_svg();
     }

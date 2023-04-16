@@ -53,6 +53,10 @@ export default {
     answer_container: elementWithId("answer-container"),
     // Numerical btns
     /**
+     * Number keys
+     */
+    number_keys: elementsWithClass("number-key"),
+    /**
      * Numerical key 0
      */
     btn_0: elementWithId("btn-0"),
@@ -96,6 +100,11 @@ export default {
      * Clear btn
      */
     btn_clear: elementWithId("btn-clear"),
+    // Operator btns
+    /**
+     * All operator btn
+     */
+    operator_keys: elementsWithClass("operator-key"),
     /**
      * Division btn
      */
@@ -120,4 +129,12 @@ export default {
      * Equal btn
      */
     btn_equal: elementWithId("btn-equal"),
+    /**
+     * Finite automata diagram tag
+     */
+    finite_automata_diagram: elementWithId("finite-automata-diagram"),
+    /**
+     * Warning tag
+     */
+    warning_tag: elementWithId("warning-tag"),
 };
