@@ -57,7 +57,7 @@ function setState4() {
         warning_msg = "Accepted input: Operators.";
     } else {
         reset();
-        alert("Mathematically impossible operations");
+        alert("Mathematically impossible operation");
     }
 }
 

@@ -307,7 +307,7 @@
         }
         else {
             reset();
-            alert("Mathematically impossible operations");
+            alert("Mathematically impossible operation");
         }
     }
     function setAnswerContainer(input = null) {

@@ -15,3 +15,9 @@ rollup.config.mjs
 
 # Terser config
 config.terser.sh
+
+# Development version html file
+index.dev.html
+
+# HTML minification
+config.html-minifier.sh
