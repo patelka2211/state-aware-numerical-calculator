@@ -53,9 +53,9 @@ export default {
     answer_container: elementWithId("answer-container"),
     // Numerical btns
     /**
-     * Number keys
+     * Digit keys
      */
-    number_keys: elementsWithClass("number-key"),
+    digit_keys: elementsWithClass("digit-key"),
     /**
      * Numerical key 0
      */

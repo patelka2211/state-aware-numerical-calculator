@@ -8,7 +8,7 @@ import elements from "./elements";
             nextCharacter(element.getAttribute("btn-value"));
         });
     }
-})(elements.number_keys());
+})(elements.digit_keys());
 ((array) => {
     for (let index = 0; index < array.length; index++) {
         const element = array[index];
@@ -30,16 +30,20 @@ elements.btn_equal().addEventListener("click", (e) => {
     e.preventDefault();
     nextCharacter(elements.btn_equal().getAttribute("btn-value"));
 });
+const keys_array = "0123456789/*+-=.".split("");
 document.addEventListener("keypress", (e) => {
     e.preventDefault();
-    "0123456789/*+-=.".split("").forEach((key) => {
-        if (e.key === key)
-            nextCharacter(key);
-    });
+    for (let index = 0; index < keys_array.length; index++) {
+        const element = keys_array[index];
+        if (e.key === element) {
+            nextCharacter(element);
+            return;
+        }
+    }
     if ("xX".indexOf(e.key) !== -1)
         nextCharacter("*");
-    if ("cC".indexOf(e.key) !== -1)
+    else if ("cC".indexOf(e.key) !== -1)
         nextCharacter("c");
-    if ("Enter" === e.key)
+    else if ("Enter" === e.key)
         nextCharacter("=");
 });

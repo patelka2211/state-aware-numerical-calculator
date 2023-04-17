@@ -1,47 +1,45 @@
 import elements from "./elements";
 import { enableTheseKeys } from "./keyManager";
 import { addHighlight, addSpotlight, highlightOnly, } from "./nodeAndEdgeColoring";
-let currentState = 0, equation = "", warning_msg = "Accepted input: Numbers.", showing_warning = false;
+let currentState = 0, equation = "", warning_msg = ["Digits"], showing_warning = false;
 function setState0(input = null) {
     if (input !== null)
         appendAnswerContainer(input);
-    enableTheseKeys("n");
+    enableTheseKeys("d");
     currentState = 0;
     highlightOnly(currentState);
-    warning_msg = "Accepted input: Numbers.";
+    warning_msg = ["Digits"];
 }
 function setState1(input) {
     appendAnswerContainer(input);
-    enableTheseKeys("node");
+    enableTheseKeys("dope");
     currentState = 1;
     highlightOnly(currentState);
-    warning_msg = "Accepted input: Numbers, Operators, Period(.), Equal.";
+    warning_msg = ["Digits", "Operators", "Period(.)", "Equal"];
 }
 function setState2(input) {
     appendAnswerContainer(input);
-    enableTheseKeys("n");
+    enableTheseKeys("d");
     currentState = 2;
     highlightOnly(currentState);
-    warning_msg = "Accepted input: Numbers.";
+    warning_msg = ["Digits"];
 }
 function setState3(input) {
     appendAnswerContainer(input);
-    enableTheseKeys("noe");
+    enableTheseKeys("doe");
     currentState = 3;
     highlightOnly(currentState);
-    warning_msg = "Accepted input: Numbers, Operators, Equal.";
+    warning_msg = ["Digits", "Operators", "Equal"];
 }
 function setState4() {
-    // let ans = eval(`'use strict'; ${equation}`);
     let ans = new Function(`return ${equation};`)();
-    // eval(`'use strict'; ${equation}`);
     if (typeof ans === "number" && isFinite(ans) && !isNaN(ans)) {
         equation = String(Number(ans.toFixed(2)));
         setAnswerContainer(equation);
         enableTheseKeys("o");
         currentState = 4;
         highlightOnly(currentState);
-        warning_msg = "Accepted input: Operators.";
+        warning_msg = ["Operators"];
     }
     else {
         reset();
@@ -74,7 +72,9 @@ function reset() {
 }
 function spotlightCurrentNode() {
     let time = 1;
-    elements.warning_tag().innerText = warning_msg;
+    elements.warning_tag().innerText = ((warning_list) => {
+        return `Accepted input${warning_list.length === 1 ? "" : "s"}: ${warning_list.join(", ")}.`;
+    })(warning_msg);
     showing_warning = true;
     setTimeout(() => {
         elements.warning_tag().innerText = "";
@@ -95,11 +95,11 @@ export function nextCharacter(character) {
     if (character.length === 1 && !showing_warning) {
         let type;
         if ("0123456789".indexOf(character) !== -1)
-            type = "n";
+            type = "d";
         else if ("/*+-".indexOf(character) !== -1)
             type = "o";
         else if ("." === character)
-            type = "d";
+            type = "p";
         else if ("=" === character)
             type = "e";
         else if ("c" === character)
@@ -108,17 +108,17 @@ export function nextCharacter(character) {
             if (type === "c")
                 reset();
             else if (currentState === 0) {
-                if (type === "n")
+                if (type === "d")
                     setState1(character);
                 else
                     spotlightCurrentNode();
             }
             else if (currentState === 1) {
-                if (type === "n")
+                if (type === "d")
                     setState1(character);
                 else if (type === "o")
                     setState0(character);
-                else if (type === "d")
+                else if (type === "p")
                     setState2(character);
                 else if (type === "e")
                     setState4();
@@ -126,13 +126,13 @@ export function nextCharacter(character) {
                     spotlightCurrentNode();
             }
             else if (currentState === 2) {
-                if (type === "n")
+                if (type === "d")
                     setState3(character);
                 else
                     spotlightCurrentNode();
             }
             else if (currentState === 3) {
-                if (type === "n")
+                if (type === "d")
                     setState3(character);
                 else if (type === "o")
                     setState0(character);

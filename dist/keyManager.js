@@ -1,19 +1,19 @@
 import elements from "./elements";
-function disableNumberKeys() {
+function disableDigitKeys() {
     ((array) => {
         for (let index = 0; index < array.length; index++) {
             const element = array[index];
             element.classList.add("disabled");
         }
-    })(elements.number_keys());
+    })(elements.digit_keys());
 }
-function enableNumberKeys() {
+function enableDigitKeys() {
     ((array) => {
         for (let index = 0; index < array.length; index++) {
             const element = array[index];
             element.classList.remove("disabled");
         }
-    })(elements.number_keys());
+    })(elements.digit_keys());
 }
 function disableOperatorKeys() {
     ((array) => {
@@ -44,18 +44,18 @@ function enableEqualKey() {
     elements.btn_equal().classList.remove("disabled");
 }
 export function enableTheseKeys(list) {
-    "node".split("").forEach((item) => {
-        if (item === "n")
+    "dope".split("").forEach((item) => {
+        if (item === "d")
             if (list.indexOf(item) !== -1)
-                enableNumberKeys();
+                enableDigitKeys();
             else
-                disableNumberKeys();
+                disableDigitKeys();
         else if (item === "o")
             if (list.indexOf(item) !== -1)
                 enableOperatorKeys();
             else
                 disableOperatorKeys();
-        else if (item === "d")
+        else if (item === "p")
             if (list.indexOf(item) !== -1)
                 enablePeriodKey();
             else

@@ -58,9 +58,9 @@ export default {
 
     // Numerical btns
     /**
-     * Number keys
+     * Digit keys
      */
-    number_keys: elementsWithClass("number-key"),
+    digit_keys: elementsWithClass("digit-key"),
     /**
      * Numerical key 0
      */
