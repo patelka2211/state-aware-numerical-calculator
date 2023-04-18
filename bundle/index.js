@@ -263,45 +263,45 @@
         }
     }
 
-    let currentState = 0, equation = "", warning_msg = ["Digits"], showing_warning = false;
+    let currentState = 0, equation = "", warning_msg = ["digits"], showing_warning = false;
     function setState0(input = null) {
         if (input !== null)
             appendAnswerContainer(input);
         enableTheseKeys("d");
         currentState = 0;
         highlightOnly(currentState);
-        warning_msg = ["Digits"];
+        warning_msg = ["digits"];
     }
     function setState1(input) {
         appendAnswerContainer(input);
         enableTheseKeys("dope");
         currentState = 1;
         highlightOnly(currentState);
-        warning_msg = ["Digits", "Operators", "Period(.)", "Equal"];
+        warning_msg = ["digits", "operators", "period(.)", "equal"];
     }
     function setState2(input) {
         appendAnswerContainer(input);
         enableTheseKeys("d");
         currentState = 2;
         highlightOnly(currentState);
-        warning_msg = ["Digits"];
+        warning_msg = ["digits"];
     }
     function setState3(input) {
         appendAnswerContainer(input);
         enableTheseKeys("doe");
         currentState = 3;
         highlightOnly(currentState);
-        warning_msg = ["Digits", "Operators", "Equal"];
+        warning_msg = ["digits", "operators", "equal"];
     }
     function setState4() {
         let ans = new Function(`return ${equation};`)();
         if (typeof ans === "number" && isFinite(ans) && !isNaN(ans)) {
-            equation = String(Number(ans.toFixed(2)));
+            equation = String(Number(ans.toFixed(6)));
             setAnswerContainer(equation);
             enableTheseKeys("o");
             currentState = 4;
             highlightOnly(currentState);
-            warning_msg = ["Operators"];
+            warning_msg = ["operators"];
         }
         else {
             reset();
@@ -333,9 +333,9 @@
         setAnswerContainer();
     }
     function spotlightCurrentNode() {
-        let time = 1;
+        let time = 1.5;
         elements.warning_tag().innerText = ((warning_list) => {
-            return `Accepted input${warning_list.length === 1 ? "" : "s"}: ${warning_list.join(", ")}.`;
+            return `Expected input${warning_list.length === 1 ? " is" : "s are"} ${warning_list.join(", ")}${warning_list.length === 1 ? " only" : ""}.`;
         })(warning_msg);
         showing_warning = true;
         setTimeout(() => {
