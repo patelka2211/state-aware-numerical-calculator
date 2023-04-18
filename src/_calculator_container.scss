@@ -97,62 +97,62 @@
 
         @include calc_keys_container();
 
-        .sharer-btn-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
-
-            .sharer-open-btn {
-                padding: 4px 8px;
-                border: none;
-                border-radius: 6px;
-                color: orange;
-                font-size: 18px;
-                background-color: transparent;
-                &:hover {
-                    background-color: rgba(255, 166, 0, 0.16);
-                    cursor: pointer;
-                }
-            }
-        }
-
-        // .sharer-btn-n-credits-container {
+        // .sharer-btn-container {
         //     width: 100%;
         //     display: flex;
         //     flex-direction: column;
-        //     align-items: center;
+        //     align-content: center;
         //     justify-content: space-around;
-        //     .sharer-btn-n-credits {
-        //         display: flex;
-        //         flex-direction: row;
-        //         align-items: center;
-        //         .sharer-open-btn {
-        //             background: none;
-        //             border: none;
-        //             font-size: 18px;
-        //             color: orange;
-        //             padding: 0;
-        //             margin-right: 4px;
-        //             &:hover {
-        //                 cursor: pointer;
-        //             }
-        //         }
-        //         .developer-credits {
-        //             margin-left: 4px;
-        //             text-decoration: none;
-        //             color: black;
-        //             display: flex;
-        //             align-items: center;
-        //             img {
-        //                 width: 24px;
-        //                 margin-right: 4px;
-        //                 border-radius: calc(24px * 0.23);
-        //             }
+        //     flex-wrap: wrap;
+
+        //     .sharer-open-btn {
+        //         padding: 4px 8px;
+        //         border: none;
+        //         border-radius: 6px;
+        //         color: orange;
+        //         font-size: 18px;
+        //         background-color: transparent;
+        //         &:hover {
+        //             background-color: rgba(255, 166, 0, 0.16);
+        //             cursor: pointer;
         //         }
         //     }
         // }
+
+        .sharer-btn-n-credits-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            .sharer-btn-n-credits {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .sharer-open-btn {
+                    background: none;
+                    border: none;
+                    font-size: 18px;
+                    color: orange;
+                    padding: 0;
+                    margin-right: 4px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                .developer-credits {
+                    margin-left: 4px;
+                    text-decoration: none;
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 24px;
+                        margin-right: 4px;
+                        border-radius: calc(24px * 0.23);
+                    }
+                }
+            }
+        }
     }
 }

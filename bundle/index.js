@@ -462,5 +462,14 @@
         else if ("Enter" === e.key)
             nextCharacter("=");
     });
+    function runIfOnDesktop() {
+        setTimeout(() => {
+            if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                let msg = `Looks like you are on a Desktop computer.\n\nHere are the key mappings you can use:\n\nKey 'c' or 'C' : Clear button\nKey '0' : 0 button\nKey '1' : 1 button\nKey '2' : 2 button\nKey '3' : 3 button\nKey '4' : 4 button\nKey '5' : 5 button\nKey '6' : 6 button\nKey '7' : 7 button\nKey '8' : 8 button\nKey '9' : 9 button\nKey '/' : Division button\nKey '*' or 'x' or 'X' : Multiplication button\nKey '+' : Addition button\nKey '-' : Subtraction button\nKey '.' : Period button\nKey '=' or 'Enter key' : Equal button\n`;
+                alert(msg);
+            }
+        }, 500);
+    }
+    window.addEventListener("load", runIfOnDesktop);
 
 })();
