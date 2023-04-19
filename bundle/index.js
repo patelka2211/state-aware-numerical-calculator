@@ -263,35 +263,35 @@
         }
     }
 
-    let currentState = 0, equation = "", warning_msg = ["digits"], showing_warning = false;
+    let currentState = 0, equation = "", warning_msg = ["digit"], showing_warning = false;
     function setState0(input = null) {
         if (input !== null)
             appendAnswerContainer(input);
         enableTheseKeys("d");
         currentState = 0;
         highlightOnly(currentState);
-        warning_msg = ["digits"];
+        warning_msg = ["digit"];
     }
     function setState1(input) {
         appendAnswerContainer(input);
         enableTheseKeys("dope");
         currentState = 1;
         highlightOnly(currentState);
-        warning_msg = ["digits", "operators", "period(.)", "equal"];
+        warning_msg = ["digit", "operator", "period(.)", "equal"];
     }
     function setState2(input) {
         appendAnswerContainer(input);
         enableTheseKeys("d");
         currentState = 2;
         highlightOnly(currentState);
-        warning_msg = ["digits"];
+        warning_msg = ["digit"];
     }
     function setState3(input) {
         appendAnswerContainer(input);
         enableTheseKeys("doe");
         currentState = 3;
         highlightOnly(currentState);
-        warning_msg = ["digits", "operators", "equal"];
+        warning_msg = ["digit", "operator", "equal"];
     }
     function setState4() {
         let ans = new Function(`return ${equation};`)();
@@ -301,7 +301,7 @@
             enableTheseKeys("o");
             currentState = 4;
             highlightOnly(currentState);
-            warning_msg = ["operators"];
+            warning_msg = ["operator"];
         }
         else {
             reset();
@@ -446,6 +446,13 @@
         nextCharacter(elements.btn_equal().getAttribute("btn-value"));
     });
     const keys_array = "0123456789/*+-=.".split("");
+    function keyMappings(showAlert = false) {
+        let msg_str = `Here are the key mappings you can use:\n\nKey 'c' or 'C' : Clear button\nKey '0' : 0 button\nKey '1' : 1 button\nKey '2' : 2 button\nKey '3' : 3 button\nKey '4' : 4 button\nKey '5' : 5 button\nKey '6' : 6 button\nKey '7' : 7 button\nKey '8' : 8 button\nKey '9' : 9 button\nKey '/' : Division button\nKey '*' or 'x' or 'X' : Multiplication button\nKey '+' : Addition button\nKey '-' : Subtraction button\nKey '.' : Period button\nKey '=' or 'Enter key' : Equal button\nKey 'k' or 'K' : To see key mappings`;
+        if (showAlert)
+            alert(msg_str);
+        else
+            return msg_str;
+    }
     document.addEventListener("keypress", (e) => {
         e.preventDefault();
         for (let index = 0; index < keys_array.length; index++) {
@@ -461,12 +468,15 @@
             nextCharacter("c");
         else if ("Enter" === e.key)
             nextCharacter("=");
+        else if ("kK".indexOf(e.key) !== -1)
+            keyMappings(true);
     });
     function runIfOnDesktop() {
         setTimeout(() => {
             if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                let msg = `Looks like you are on a Desktop computer.\n\nHere are the key mappings you can use:\n\nKey 'c' or 'C' : Clear button\nKey '0' : 0 button\nKey '1' : 1 button\nKey '2' : 2 button\nKey '3' : 3 button\nKey '4' : 4 button\nKey '5' : 5 button\nKey '6' : 6 button\nKey '7' : 7 button\nKey '8' : 8 button\nKey '9' : 9 button\nKey '/' : Division button\nKey '*' or 'x' or 'X' : Multiplication button\nKey '+' : Addition button\nKey '-' : Subtraction button\nKey '.' : Period button\nKey '=' or 'Enter key' : Equal button\n`;
+                let msg = `Looks like you are on a Desktop computer.\n\n${keyMappings()}`;
                 alert(msg);
+                alert(`If you need to see key mappings again, then press 'k' or 'K' key.`);
             }
         }, 500);
     }

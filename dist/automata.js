@@ -1,35 +1,35 @@
 import elements from "./elements";
 import { enableTheseKeys } from "./keyManager";
 import { addHighlight, addSpotlight, highlightOnly, } from "./nodeAndEdgeColoring";
-let currentState = 0, equation = "", warning_msg = ["digits"], showing_warning = false;
+let currentState = 0, equation = "", warning_msg = ["digit"], showing_warning = false;
 function setState0(input = null) {
     if (input !== null)
         appendAnswerContainer(input);
     enableTheseKeys("d");
     currentState = 0;
     highlightOnly(currentState);
-    warning_msg = ["digits"];
+    warning_msg = ["digit"];
 }
 function setState1(input) {
     appendAnswerContainer(input);
     enableTheseKeys("dope");
     currentState = 1;
     highlightOnly(currentState);
-    warning_msg = ["digits", "operators", "period(.)", "equal"];
+    warning_msg = ["digit", "operator", "period(.)", "equal"];
 }
 function setState2(input) {
     appendAnswerContainer(input);
     enableTheseKeys("d");
     currentState = 2;
     highlightOnly(currentState);
-    warning_msg = ["digits"];
+    warning_msg = ["digit"];
 }
 function setState3(input) {
     appendAnswerContainer(input);
     enableTheseKeys("doe");
     currentState = 3;
     highlightOnly(currentState);
-    warning_msg = ["digits", "operators", "equal"];
+    warning_msg = ["digit", "operator", "equal"];
 }
 function setState4() {
     let ans = new Function(`return ${equation};`)();
@@ -39,7 +39,7 @@ function setState4() {
         enableTheseKeys("o");
         currentState = 4;
         highlightOnly(currentState);
-        warning_msg = ["operators"];
+        warning_msg = ["operator"];
     }
     else {
         reset();
