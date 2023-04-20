@@ -477,8 +477,7 @@
     function runIfOnDesktop() {
         setTimeout(() => {
             if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                let msg = `Looks like you are on a Desktop computer.\n\n${keyMappings()}`;
-                alert(msg);
+                alert(`Looks like you are on a Desktop computer.\n\n${keyMappings()}`);
                 alert(`If you need to see key mappings again, then press 'k' or 'K' key.`);
             }
         }, 500);

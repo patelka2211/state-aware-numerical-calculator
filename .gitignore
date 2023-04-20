@@ -21,3 +21,6 @@ index.dev.html
 
 # HTML minification
 config.html-minifier.sh
+
+# Build
+config.build.sh
