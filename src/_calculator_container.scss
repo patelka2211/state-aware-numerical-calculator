@@ -97,28 +97,6 @@
 
         @include calc_keys_container();
 
-        // .sharer-btn-container {
-        //     width: 100%;
-        //     display: flex;
-        //     flex-direction: column;
-        //     align-content: center;
-        //     justify-content: space-around;
-        //     flex-wrap: wrap;
-
-        //     .sharer-open-btn {
-        //         padding: 4px 8px;
-        //         border: none;
-        //         border-radius: 6px;
-        //         color: orange;
-        //         font-size: 18px;
-        //         background-color: transparent;
-        //         &:hover {
-        //             background-color: rgba(255, 166, 0, 0.16);
-        //             cursor: pointer;
-        //         }
-        //     }
-        // }
-
         .sharer-btn-n-credits-container {
             width: 100%;
             display: flex;
