@@ -2,74 +2,6 @@ import elements from "./elements";
 import { enableTheseKeys } from "./keyManager";
 import { addHighlight, addSpotlight, highlightOnly, } from "./nodeAndEdgeColoring";
 let currentState = 0, equation = "", warning_msg = ["digit"], showing_warning = false;
-function setState0(input = null) {
-    if (input !== null)
-        appendAnswerContainer(input);
-    enableTheseKeys("d");
-    currentState = 0;
-    highlightOnly(currentState);
-    warning_msg = ["digit"];
-}
-function setState1(input) {
-    appendAnswerContainer(input);
-    enableTheseKeys("dope");
-    currentState = 1;
-    highlightOnly(currentState);
-    warning_msg = ["digit", "operator", "period(.)", "equal"];
-}
-function setState2(input) {
-    appendAnswerContainer(input);
-    enableTheseKeys("d");
-    currentState = 2;
-    highlightOnly(currentState);
-    warning_msg = ["digit"];
-}
-function setState3(input) {
-    appendAnswerContainer(input);
-    enableTheseKeys("doe");
-    currentState = 3;
-    highlightOnly(currentState);
-    warning_msg = ["digit", "operator", "equal"];
-}
-function setState4() {
-    let ans = new Function(`return ${equation};`)();
-    if (typeof ans === "number" && isFinite(ans) && !isNaN(ans)) {
-        equation = String(Number(ans.toFixed(6)));
-        setAnswerContainer(equation);
-        enableTheseKeys("o");
-        currentState = 4;
-        highlightOnly(currentState);
-        warning_msg = ["operator"];
-    }
-    else {
-        reset();
-        alert("Mathematically impossible operation");
-    }
-}
-function setAnswerContainer(input = null) {
-    if (input === null)
-        elements.answer_container().innerHTML = "";
-    else
-        elements.answer_container().innerHTML = `<span class="ans-element">${input}</span>`;
-}
-function appendAnswerContainer(input) {
-    let span = document.createElement("span");
-    span.setAttribute("class", "ans-element");
-    if (input === "*")
-        span.innerText = "×";
-    else
-        span.innerText = input;
-    ((element) => {
-        element.append(span);
-        element.scrollLeft = element.scrollWidth;
-    })(elements.answer_container());
-    equation += input;
-}
-function reset() {
-    equation = "";
-    setState0();
-    setAnswerContainer();
-}
 function spotlightCurrentNode() {
     let time = 1.5;
     elements.warning_tag().innerText = ((warning_list) => {
@@ -91,6 +23,116 @@ function spotlightCurrentNode() {
             }, 125 * index);
     }
 }
+function onState0(type, character) {
+    if (type === "d")
+        setState1(character);
+    else
+        spotlightCurrentNode();
+}
+function setState0(character) {
+    appendAnswerContainer(character);
+    enableTheseKeys("d");
+    currentState = 0;
+    highlightOnly(currentState);
+    warning_msg = ["digit"];
+}
+function onState1(type, character) {
+    if (type === "d")
+        setState1(character);
+    else if (type === "o")
+        setState0(character);
+    else if (type === "p")
+        setState2(character);
+    else if (type === "e")
+        setState4();
+    else
+        spotlightCurrentNode();
+}
+function setState1(character) {
+    appendAnswerContainer(character);
+    enableTheseKeys("dope");
+    currentState = 1;
+    highlightOnly(currentState);
+    warning_msg = ["digit", "operator", "period(.)", "equal"];
+}
+function onState2(type, character) {
+    if (type === "d")
+        setState3(character);
+    else
+        spotlightCurrentNode();
+}
+function setState2(character) {
+    appendAnswerContainer(character);
+    enableTheseKeys("d");
+    currentState = 2;
+    highlightOnly(currentState);
+    warning_msg = ["digit"];
+}
+function onState3(type, character) {
+    if (type === "d")
+        setState3(character);
+    else if (type === "o")
+        setState0(character);
+    else if (type === "e")
+        setState4();
+    else
+        spotlightCurrentNode();
+}
+function setState3(character) {
+    appendAnswerContainer(character);
+    enableTheseKeys("doe");
+    currentState = 3;
+    highlightOnly(currentState);
+    warning_msg = ["digit", "operator", "equal"];
+}
+function onState4(type, character) {
+    if (type === "o")
+        setState0(character);
+    else
+        spotlightCurrentNode();
+}
+function setState4() {
+    let ans = new Function(`return ${equation};`)();
+    if (typeof ans === "number" && isFinite(ans) && !isNaN(ans)) {
+        equation = String(Number(ans.toFixed(6)));
+        setAnswerContainer(equation);
+        enableTheseKeys("o");
+        currentState = 4;
+        highlightOnly(currentState);
+        warning_msg = ["operator"];
+    }
+    else {
+        reset();
+        alert("Mathematically impossible operation");
+    }
+}
+function setAnswerContainer(input) {
+    if (input === null)
+        elements.answer_container().innerHTML = "";
+    else
+        elements.answer_container().innerHTML = `<span class="ans-element">${input}</span>`;
+}
+function appendAnswerContainer(input) {
+    let span = document.createElement("span");
+    span.setAttribute("class", "ans-element");
+    if (input === "*")
+        span.innerText = "×";
+    else
+        span.innerText = input;
+    ((element) => {
+        element.append(span);
+        element.scrollLeft = element.scrollWidth;
+    })(elements.answer_container());
+    equation += input;
+}
+function reset() {
+    equation = "";
+    enableTheseKeys("d");
+    currentState = 0;
+    highlightOnly(currentState);
+    warning_msg = ["digit"];
+    setAnswerContainer(null);
+}
 export function nextCharacter(character) {
     if (character.length === 1 && !showing_warning) {
         let type;
@@ -107,46 +149,16 @@ export function nextCharacter(character) {
         if (type !== undefined) {
             if (type === "c")
                 reset();
-            else if (currentState === 0) {
-                if (type === "d")
-                    setState1(character);
-                else
-                    spotlightCurrentNode();
-            }
-            else if (currentState === 1) {
-                if (type === "d")
-                    setState1(character);
-                else if (type === "o")
-                    setState0(character);
-                else if (type === "p")
-                    setState2(character);
-                else if (type === "e")
-                    setState4();
-                else
-                    spotlightCurrentNode();
-            }
-            else if (currentState === 2) {
-                if (type === "d")
-                    setState3(character);
-                else
-                    spotlightCurrentNode();
-            }
-            else if (currentState === 3) {
-                if (type === "d")
-                    setState3(character);
-                else if (type === "o")
-                    setState0(character);
-                else if (type === "e")
-                    setState4();
-                else
-                    spotlightCurrentNode();
-            }
-            else if (currentState === 4) {
-                if (type === "o")
-                    setState0(character);
-                else
-                    spotlightCurrentNode();
-            }
+            else if (currentState === 0)
+                onState0(type, character);
+            else if (currentState === 1)
+                onState1(type, character);
+            else if (currentState === 2)
+                onState2(type, character);
+            else if (currentState === 3)
+                onState3(type, character);
+            else if (currentState === 4)
+                onState4(type, character);
         }
         else if (type === undefined)
             spotlightCurrentNode();

@@ -55,9 +55,8 @@ document.addEventListener("keypress", (e) => {
         nextCharacter("=");
     else if ("kK".indexOf(e.key) !== -1)
         keyMappings(true);
-    else if ("sS".indexOf(e.key) !== -1) {
+    else if ("sS".indexOf(e.key) !== -1)
         new Function(`try{sharer.open();}catch(error){console.log(error);}`)();
-    }
 });
 function runIfOnDesktop() {
     setTimeout(() => {
