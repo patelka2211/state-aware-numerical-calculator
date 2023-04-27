@@ -36,7 +36,7 @@ elements.btn_equal().addEventListener("click", (e) => {
 const keys_array = "0123456789/*+-=.".split("");
 
 function keyMappings(showAlert = false) {
-    let msg_str = `Here are the key mappings you can use:\n\nKey 's' or 'S': To share this page\nKey 'c' or 'C' : Clear button\nKey '0' : 0 button\nKey '1' : 1 button\nKey '2' : 2 button\nKey '3' : 3 button\nKey '4' : 4 button\nKey '5' : 5 button\nKey '6' : 6 button\nKey '7' : 7 button\nKey '8' : 8 button\nKey '9' : 9 button\nKey '/' : Division button\nKey '*' or 'x' or 'X' : Multiplication button\nKey '+' : Addition button\nKey '-' : Subtraction button\nKey '.' : Period button\nKey '=' or 'Enter key' : Equal button\nKey 'k' or 'K' : To see key mappings\n`;
+    let msg_str = `Here are the key mappings you can use:\n\nTo share: 's' or 'S'\nTo clear: 'c' or 'C'\nTo enter numbers: '0' to '9'\nFor division: '/'\nFor multiplication: '*', 'x' or 'X'\nFor addition: '+'\nFor subtraction: '-'\nTo enter decimal point: '.'\nTo calculate: '=' or 'Enter'\nTo see key mappings: 'k' or 'K'\n`;
     if (showAlert) alert(msg_str);
     else return msg_str;
 }
@@ -68,10 +68,10 @@ function runIfOnDesktop() {
             )
         ) {
             alert(
-                `Looks like you are on a Desktop computer.\n\n${keyMappings()}`
+                `Looks like you are on a desktop computer.\n\n${keyMappings()}`
             );
             alert(
-                `If you need to see key mappings again, then press 'k' or 'K' key.`
+                `To view the key mappings again, simply press the 'k' or 'K' key.`
             );
         }
     }, 500);
