@@ -57,7 +57,7 @@ document.addEventListener("keypress", (e) => {
     else if ("Enter" === e.key) nextCharacter("=");
     else if ("kK".indexOf(e.key) !== -1) keyMappings(true);
     else if ("sS".indexOf(e.key) !== -1)
-        new Function(`try{sharer.open();}catch(error){console.log(error);}`)();
+        new Function(`try{Sharer.open();}catch(error){console.log(error);}`)();
 });
 
 function runIfOnDesktop() {
